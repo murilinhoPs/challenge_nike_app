@@ -9,7 +9,7 @@ class NikeAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 0),
-      padding: EdgeInsets.only(right: 20, left: 20, bottom: 5),
+      padding: EdgeInsets.only(right: 20, left: 20, bottom: 5, top: 25),
       height: MediaQuery.of(context).size.height * 0.12,
       alignment: Alignment.bottomCenter,
       decoration: BoxDecoration(

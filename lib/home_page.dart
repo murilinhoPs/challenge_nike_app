@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
             right: 0,
             left: 0,
             child: AnimatedOpacity(
-              duration: Duration(milliseconds: 500),
+              duration: Duration(milliseconds: 1000),
               opacity: show ? 1.0 : 0.0,
               child: NikeProductImage(
                 height: height,

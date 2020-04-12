@@ -15,7 +15,7 @@ class SizeOptions extends StatelessWidget {
     return GestureDetector(
       onTap: () => onSelect(index),
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 500),
+        duration: Duration(milliseconds: 300),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.vertical(
             top: Radius.circular(15),
