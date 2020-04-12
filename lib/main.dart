@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'home_page.dart';
@@ -9,10 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Nike App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      title: 'Nike Store',
       home: MyHomePage(),
     );
   }

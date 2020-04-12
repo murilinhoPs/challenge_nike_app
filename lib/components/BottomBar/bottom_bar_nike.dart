@@ -5,6 +5,10 @@ import 'package:nike_app/components/BottomBar/components/bottom_bar_row.dart';
 import 'package:nike_app/components/BottomBar/components/bottom_content_description.dart';
 
 class NikeBottomBar extends StatelessWidget {
+  final bool show;
+
+  NikeBottomBar(this.show);
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -12,25 +16,25 @@ class NikeBottomBar extends StatelessWidget {
 
     return Positioned(
       bottom: 0,
-      // alignment: Alignment.bottomCenter,
       child: Container(
         child: Stack(
           children: <Widget>[
-            Container(
-              height: height * 0.34,
+            AnimatedContainer(
+              duration: Duration(milliseconds: 500),
+              height: show ? height * 0.45 : height * 0.1, //0.34,
               width: width,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
                     Colors.white,
-                    Colors.white.withOpacity(0.05),
+                    Colors.white.withOpacity(0.5),
                   ],
-                  stops: [0.75, 1.0],
+                  stops: [0.7, 1.0],
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
                 ),
                 borderRadius: BorderRadius.vertical(
-                  top: Radius.circular(30),
+                  top: Radius.circular(50),
                 ),
               ),
             ),
@@ -41,8 +45,26 @@ class NikeBottomBar extends StatelessWidget {
               left: 0,
               child: Column(
                 children: <Widget>[
-                  SizeOptionsRow(),
-                  NikeBottomDescription(height, width),
+                  AnimatedCrossFade(
+                    firstChild: SizeOptionsRow(),
+                    secondChild: Text(
+                      'Clique no menu lateral para exibir o conteúdo',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    crossFadeState: show
+                        ? CrossFadeState.showFirst
+                        : CrossFadeState.showSecond,
+                    duration: Duration(milliseconds: 200),
+                  ),
+                  AnimatedCrossFade(
+                    firstChild: NikeBottomDescription(height, width),
+                    secondChild: Container(),
+                    crossFadeState: show
+                        ? CrossFadeState.showFirst
+                        : CrossFadeState.showSecond,
+                    duration: Duration(milliseconds: 500),
+                  ),
                 ],
               ),
             ),
@@ -57,18 +79,18 @@ class NikeBottomBar extends StatelessWidget {
       bottom: 0,
       child: Container(
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(50),
           child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+            filter: ImageFilter.blur(sigmaX: 7, sigmaY: 10),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.grey.shade100.withOpacity(0.2),
+                color: Colors.grey.shade100.withOpacity(0.3),
               ),
             ),
           ),
         ),
       ),
-      height: height * 0.34,
+      height: height * 0.45,
       width: width,
     );
   }

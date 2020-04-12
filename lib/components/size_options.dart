@@ -2,32 +2,40 @@ import 'package:flutter/material.dart';
 
 class SizeOptions extends StatelessWidget {
   final String size;
-  final bool selected;
+  final int index;
+  final int currentIndex;
+  final Function(int) onSelect;
 
-  const SizeOptions({this.size, this.selected});
+  bool get selected => index == currentIndex;
+
+  const SizeOptions({this.size, this.index, this.currentIndex, this.onSelect});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(15),
-          bottom: Radius.circular(15),
+    return GestureDetector(
+      onTap: () => onSelect(index),
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 500),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(15),
+            bottom: Radius.circular(15),
+          ),
+          color: (selected ?? false)
+              ? Colors.blueGrey[100].withOpacity(0.6)
+              : Colors.transparent,
         ),
-        color: (selected ?? false)
-            ? Colors.white.withOpacity(0.8)
-            : Colors.transparent,
-      ),
-      alignment: Alignment.center,
-      height: 50.0,
-      width: 50.0,
-      child: Text(
-        size ?? 'S',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 20,
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
+        alignment: Alignment.center,
+        height: 42.0,
+        width: 40.0,
+        child: Text(
+          size ?? 'S',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );

@@ -10,11 +10,9 @@ class NikeBottomDescription extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
-            alignment: Alignment.center,
+            alignment: Alignment.topCenter,
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: <Widget>[
@@ -23,7 +21,7 @@ class NikeBottomDescription extends StatelessWidget {
                   "MEN'S RUNNING JACKET",
                   style: TextStyle(
                     color: Colors.grey[500],
-                    fontSize: 18,
+                    fontSize: 16,
                   ),
                 ),
                 SizedBox(height: height * 0.015),
@@ -50,10 +48,10 @@ class NikeBottomDescription extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: height * 0.005),
+          SizedBox(height: height * 0.01),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 50),
-            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+            margin: EdgeInsets.symmetric(horizontal: 80),
+            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
             // width: 300,
             // height: 70,
             decoration: BoxDecoration(
@@ -69,21 +67,21 @@ class NikeBottomDescription extends StatelessWidget {
                 Icon(
                   Icons.shopping_cart,
                   color: Colors.white,
-                  size: 35,
+                  size: 32,
                 ),
                 Text(
                   "ADD TO CART",
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
-                      fontSize: 18),
+                      fontSize: 16),
                 ),
                 Text(
                   "\$120",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
+                    color: Colors.grey[200],
+                    fontSize: 12,
                   ),
                 ),
               ],
